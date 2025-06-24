@@ -1,7 +1,6 @@
 import './App.css';
-import navbar from './components/navbar';
-import items from './components/itemlist';
-import cart from './components/cart';
+import NavBar from './components/navbar';
+import ItemListContainer from './components/itemlist';
 
 function App() {
   return (
