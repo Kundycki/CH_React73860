@@ -1,5 +1,6 @@
-import Item from './item';
-import products from '../data/products';
+import Item from '../item/item';
+import products from '../../data/products';
+import './itemlist.css';
 
 const ItemListContainer = ({ greeting }) => {
   return (
@@ -8,11 +9,11 @@ const ItemListContainer = ({ greeting }) => {
       <div className="product-list">
         {products.map(prod => (
           <Item
-            key={prod.id}
-            name={prod.name}
-            description={prod.description}
-            price={prod.price}
-            image={prod.image}
+            key={products.id}
+            name={products.name}
+            description={products.description}
+            price={products.price}
+            image={products.image}
           />
         ))}
       </div>
