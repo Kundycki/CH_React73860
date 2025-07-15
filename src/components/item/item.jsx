@@ -1,10 +1,13 @@
-const Item = ({ name, description, price, image }) => {
+import "./item.css"
+
+const Item = ({ product }) => {
   return (
     <div className="card">
-      <img src={image} alt={name} />
-      <h3>{name}</h3>
-      <p>{description}</p>
-      <span>${price}</span>
+      <img src={product.image} alt="" />
+      <h3>{product.name}</h3>
+      <p>{product.category}</p>
+      <p>{product.description}</p>
+      <span>${product.price}</span>
       <button>Agregar al carrito</button>
     </div>
   );

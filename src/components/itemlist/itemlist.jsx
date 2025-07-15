@@ -1,24 +1,16 @@
 import Item from '../item/item';
-import products from '../../data/products';
 import './itemlist.css';
 
-const ItemListContainer = ({ greeting }) => {
+const itemlist = ({ products = [] }) => {
   return (
-    <div>
-      <h2>{greeting}</h2>
-      <div className="product-list">
-        {products.map(prod => (
-          <Item
-            key={products.id}
-            name={products.name}
-            description={products.description}
-            price={products.price}
-            image={products.image}
-          />
-        ))}
-      </div>
-    </div>
+    <ul className="item-list">
+      {
+        products.map((product) => (
+          <Item product={product} key={product.id} />
+        ))
+      }
+    </ul>
   );
 };
 
-export default ItemListContainer;
+export default itemlist;
