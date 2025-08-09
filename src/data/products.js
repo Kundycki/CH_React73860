@@ -5,7 +5,8 @@ const products = [
     description:"zapatillas deportivas con tecnología de amortiguación.",
     price:150,
     image:"/img/airm27.jpeg",
-    category:"Zapatillas"
+    category:"Zapatillas",
+    stock: 10
   },
   {
     id:2,
@@ -13,7 +14,8 @@ const products = [
     description:"Zapatillas de running con gran comodidad y soporte.",
     price:147,
     image:"/img/ultrabo.avif",
-    category:"Zapatillas"
+    category:"Zapatillas",
+    stock: 8
   },
   {
     id:3,
@@ -21,7 +23,8 @@ const products = [
     description:"Zapatillas de diseño exclusivo con suela de gran tracción.",
     price:250,
     image:"/img/yeezy7v2.jpeg",
-    category:"Zapatillas"
+    category:"Zapatillas",
+    stock: 5
   },
   {
     id: 4,
@@ -29,7 +32,8 @@ const products = [
     description: "Remera de algodón orgánico, corte oversize unisex.",
     price: 30,
     image: "/img/remeraoversizeblanca.webp",
-    category: "Remeras"
+    category: "Ropa",
+    stock: 15
   },
   {
     id: 5,
@@ -37,7 +41,8 @@ const products = [
     description: "Remera básica negra, cómoda y resistente al uso diario.",
     price: 25,
     image: "/img/remeranegrabasica.webp",
-    category: "remeras"
+    category: "Ropa",
+    stock: 20
   },
   {
     id: 6,
@@ -45,7 +50,8 @@ const products = [
     description: "Pantalón con múltiples bolsillos y ajuste elástico.",
     price: 60,
     image: "/img/cargoverde.webp",
-    category: "Pantalones"
+    category: "Ropa",
+    stock: 12
   },
   {
     id: 7,
@@ -53,7 +59,8 @@ const products = [
     description: "Pantalón jogger con tela suave y elástica.",
     price: 55,
     image: "/img/jogger.webp",
-    category: "Pantalones"
+    category: "Ropa",
+    stock: 10
   },
   {
     id: 8,
@@ -61,7 +68,8 @@ const products = [
     description: "Gorra de algodón con logo bordado y ajuste trasero.",
     price: 20,
     image: "/img/gorranegra.webp",
-    category: "Accesorios"
+    category: "Accesorios",
+    stock: 25
   },
   {
     id: 9,
@@ -69,7 +77,8 @@ const products = [
     description: "Anteojos con diseño retro, protección UV400.",
     price: 35,
     image: "/img/gafasretro.webp",
-    category: "Accesorios"
+    category: "Accesorios",
+    stock: 18
   },
   {
     id: 10,
@@ -77,7 +86,8 @@ const products = [
     description: "Riñonera compacta para uso urbano o deportivo.",
     price: 28,
     image: "/img/rinoneradep.webp",
-    category: "Accesorios"
+    category: "Accesorios",
+    stock: 22
   }
 ];
 

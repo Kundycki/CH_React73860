@@ -1,13 +1,23 @@
 import "./cartwidget.css";
 import { PiShoppingCartFill } from "react-icons/pi";
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
-const Cart = () => {
+const CartWidget = () => {
+  const [totalItems, setTotalItems] = useState(0);
+
+  useEffect(() => {
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    const total = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+    setTotalItems(total);
+  }, []);
+
   return (
-    <div className="cart-widget">
+    <Link to="/cart" className="cart-widget">
       <PiShoppingCartFill className="cart-icon" />
-      <p className="cart-text"> </p>
-    </div>
-  )
-}
+      <p className="cart-text">{totalItems}</p>
+    </Link>
+  );
+};
 
-export default Cart;
+export default CartWidget;
