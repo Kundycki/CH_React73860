@@ -1,7 +1,7 @@
 import Item from '../item/item';
 import './itemlist.css';
 
-const itemlist = ({ products = [] }) => {
+const Itemlist = ({ products = [] }) => {
   return (
     <ul className="item-list">
       {
@@ -13,4 +13,4 @@ const itemlist = ({ products = [] }) => {
   );
 };
 
-export default itemlist;
+export default Itemlist;

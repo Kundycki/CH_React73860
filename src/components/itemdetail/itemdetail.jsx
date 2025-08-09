@@ -1,18 +1,17 @@
 import './itemdetail.css';
-import {useState} from 'react';
-import "../itemcount/itemcount";
+import { useState, useContext } from 'react';
+import { CartContext } from "../../context/cartcontext/cartcontext";
+import ItemCount from '../itemcount/itemcount';
 
 const ItemDetail = ({ product }) => {
+  const { addToCart } = useContext(CartContext);
   const [added, setAdded] = useState(false);
-  
 
-  const addProduct = (quantity) => {
-  const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-  console.log(`Agregaste ${quantity} unidades de ${product.name}`);
-  cartItems.push({ ...product, quantity });
-  localStorage.setItem("cart", JSON.stringify(cartItems));
-  setAdded(true);
-};
+  const handleAdd = (quantity) => {
+    addToCart(product, quantity);
+    setAdded(true);
+  };
+
   return (
     <div className="item-detail">
       <img src={product.image} alt={product.name} className="item-image" />
@@ -21,7 +20,12 @@ const ItemDetail = ({ product }) => {
         <p className="item-category">{product.category}</p>
         <p>{product.description}</p>
         <p className="item-price">${product.price}</p>
-        <button className="add-to-cart-btn">Agregar al carrito</button>
+
+        {added ? (
+          <button className="go-to-cart-btn">Ir al carrito</button>
+        ) : (
+          <ItemCount stock={10} initial={1} onAdd={handleAdd} />
+        )}
       </div>
     </div>
   );
