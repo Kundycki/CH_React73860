@@ -1,22 +1,19 @@
-import { useState, useEffect } from "react";
+import useProducts from "../../hooks/useProducts";
+import ItemList from "../ItemList/ItemList";
+import Loading from "../Loading/Loading";
 import { useParams } from "react-router-dom";
-import { getProducts } from "../../data/products";
-import ItemList from "../itemlist/itemlist";
+import "./itemlistcontainer.css";
 
-export default function ItemListContainer() {
-  const [items, setItems] = useState([]);
+const ItemListContainer = () => {
   const { categoryId } = useParams();
+  const { products, loading } = useProducts(categoryId);
 
-  useEffect(() => {
-    getProducts().then((data) => {
-      if (categoryId) {
-        const filtered = data.filter(product => product.category === categoryId);
-        setItems(filtered);
-      } else {
-        setItems(data);
-      }
-    });
-  }, [categoryId]);
+  return (
+    <div className="itemlistcontainer">
+      <h2>Bienvenidos a mi e-commerce</h2>
+      {loading ? <Loading /> : <ItemList products={products} />}
+    </div>
+  );
+};
 
-  return <ItemList products={items} />;
-}
+export default ItemListContainer;

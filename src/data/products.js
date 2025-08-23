@@ -91,7 +91,7 @@ const products = [
   }
 ];
 
-const getProducts = () => {
+export const getProducts = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(products);
@@ -99,7 +99,7 @@ const getProducts = () => {
   });
 };
 
-const getProductById = (productId) => {
+export const getProductById = (productId) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       const product = products.find((product) => product.id === Number(productId));
@@ -108,4 +108,5 @@ const getProductById = (productId) => {
   });
 };
 
-export { getProducts, getProductById };
+
+export default products;

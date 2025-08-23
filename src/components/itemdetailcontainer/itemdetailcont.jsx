@@ -1,18 +1,18 @@
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { getProductById } from "../../data/products";
+import useProduct from "../../hooks/useProduct";
+import Loading from "../Loading/Loading";
 import ItemDetail from "../itemdetail/itemdetail";
-import "./itemdetailcont.css"; 
+import { useParams } from "react-router-dom";
+import "./itemdetailcont.css";
 
-export default function ItemDetailContainer() {
-  const [product, setProduct] = useState(null);
+const ItemDetailContainer = () => {
   const { id } = useParams();
+  const { product, loading } = useProduct(id);
 
-  useEffect(() => {
-    getProductById(id).then((data) => {
-      setProduct(data);
-    });
-  }, [id]);
+  return (
+    <div className="item-detail-container">
+      {loading ? <Loading /> : <ItemDetail product={product} />}
+    </div>
+  );
+};
 
-  return product ? <ItemDetail product={product} /> : <p>Cargando...</p>;
-}
+export default ItemDetailContainer;

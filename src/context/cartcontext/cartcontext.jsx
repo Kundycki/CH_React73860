@@ -1,9 +1,18 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
-export const CartContext = createContext();
+const CartContext = createContext();
 
-export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+const CartProvider = ({ children }) => {
+  const [cart, setCart] = useState(() => {
+    // Cargar carrito desde localStorage al inicio
+    const storedCart = localStorage.getItem("cart");
+    return storedCart ? JSON.parse(storedCart) : [];
+  });
+
+  useEffect(() => {
+    // Guardar carrito en localStorage cada vez que cambia
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   const addToCart = (product, quantity) => {
     const existingProduct = cart.find((item) => item.id === product.id);
@@ -42,3 +51,5 @@ export const CartProvider = ({ children }) => {
     </CartContext.Provider>
   );
 };
+
+export { CartContext, CartProvider };

@@ -1,14 +1,15 @@
 import "./item.css"
+import { Link } from "react-router-dom";
 
 const Item = ({ product }) => {
   return (
     <div className="card">
-      <img src={product.image} alt="" />
-      <h3>{product.name}</h3>
-      <p>{product.category}</p>
-      <p>{product.description}</p>
-      <span>${product.price}</span>
-      <button>Agregar al carrito</button>
+      <img src={product.image} alt={product.name} />
+      <h2>{product.name}</h2>
+      <p>${product.price}</p>
+      <Link to={`/item/${product.id}`}>
+        <button>Ver detalle</button>
+      </Link>
     </div>
   );
 };
