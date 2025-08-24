@@ -9,7 +9,7 @@ const ItemDetail = ({ product }) => {
   const [added, setAdded] = useState(false);
 
   const handleAdd = (quantity) => {
-    addToCart(product, quantity);
+    addToCart(...product, quantity);
     setAdded(true);
   };
 
