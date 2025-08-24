@@ -1,4 +1,4 @@
-import useProducts from "../../hooks/useProducts";
+import { useProducts } from "../../hooks/useProducts";
 import ItemList from "../ItemList/ItemList";
 import Loading from "../Loading/Loading";
 import { useParams } from "react-router-dom";
